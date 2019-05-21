@@ -57,12 +57,18 @@ def all_supplies_in_holidays(holiday_hash)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
-holiday_hash.each do |season,holiday|
-     puts "#{season.capitalize}:"
-  holiday.each do |holiday,supplies|
-       puts "  #{holiday.to_s.split("_").map{|x| x.capitalize}.join(" ")}: #{supplies.join(", ")}" 
-  end
-end
+  holiday_hash.each do |season, holidays|
+      puts "#{season.capitalize}:"
+	  holidays.each do |holiday, supplies|
+	  puts "  #{holiday.to_s.split("_").map{|word| word.capitalize}.join(" ")}: #{supplies.join(", ")}"
+	  end
+	end
+    #type out what the return value is of each thing before we call the next method, or enter the next chain
+    # holiday => :memorial_day
+    # holiday.to_s => "memorial day"
+    # holiday.to_s.split("_") => ["memorial", "day"]
+    # holiday.to_s.split("_".map{...word.capitalize}) => ["Memorial", "Day"]
+    # holiday.to_s.split("_".map{...word.capitalize}).join(" ") => "Memorial Day"
 end
 
 def all_holidays_with_bbq(holiday_hash)
